@@ -24,77 +24,25 @@ This preset improves color, shadows, texture detail, and sharpness in supported 
 2. Copy the preset files (such as `ReShadePreset.ini` and related files/folders) to the same folder as the game executable.
 3. Launch the game and open the ReShade menu (default key is usually `Home`) to load the preset.
 
-## Performance HUD
+## Shaders & Addons
 
-The preset includes a ReShade add-on (`reshade-shaders/Addons/PerformanceHUD.addon64`) that displays an always-visible on-screen HUD in a single column, one metric per line:
+| Shader | Description |
+|--------|-------------|
+| **Ambience** (`ambient_v3.fx`) | Better shadows and vegetation color via ambient removal and contrast curves. |
+| **Colorfull** (`Colourfulness_v3.fx`) | Better color palette via colourfulness and vibrance adjustments. |
+| **Unit Sharpen** (`qUINT_sharp.fx`) | Better image clarity and texture details via depth-enhanced local contrast sharpening. |
+| **Levels** (`light.fx`) | Black/white point remap for contrast balance. |
 
-- **FPS**: average FPS plus 1% and 0.1% lows over a rolling 10 second window (Smooth Motion option doubles the values for frame generation)
-- **CPU**: usage
-- **RAM**: used memory in GB
-- **GPU**: usage per adapter, VRAM used in GB, and power draw and temperature on NVIDIA GPUs (via NVML). Non-NVIDIA GPUs report usage and VRAM using Windows GPU counters (what Task Manager uses)
-- **Battery**: charge percentage on laptops
+## Performance HUD Addon
 
-Settings are under the ReShade overlay (open with the ReShade menu key):
-
-- **Show performance issues only**: colors lines by load and auto-shows lines that are in a warning state
-- Toggle each metric, HUD scale, base text color (default `#FFFFFFFF`), HUD y offset and refresh interval (100 to 10000 ms)
-
-Warning thresholds:
-
-| Metric | Yellow | Red |
-| --- | --- | --- |
-| CPU / GPU usage | 60% and above | 90% and above |
-| FPS | below 60 | below 30 |
-| RAM / VRAM free | below 1 GB | below 0.5 GB |
-| GPU temperature | above 70 C | above 80 C |
-| Battery | below 80% | below 50% |
-
-Notes:
-
-- Requires a full ReShade installation with add-on support; `ReShade.ini` in this repository already sets `[ADDON] AddonPath=.\reshade-shaders\Addons`.
-- Copy `reshade-shaders/Addons/PerformanceHUD.addon64` together with the other preset files next to the game executable for the HUD to load.
-- To change the HUD position, go to the ReShade settings: **Settings > Overlay > "OSD position on screen"**.
-
-
-## Videos
-
-- [Watch Dogs video](https://youtu.be/9CZt-tkJ0gY)
-- [The Witcher 3 video](https://youtu.be/tu1LvzgK_9M)
-
-## Showcase
-
-### Fallout 4
-
-- **Pair 1**
-  - ![Fallout 4 OFF - 2026-06-24 15:01:53](https://reshade-images.s3.us-east-1.amazonaws.com/Fallout4+2026-06-24+15-01-53.png)
-  - ![Fallout 4 ON - 2026-06-24 15:02:07](https://reshade-images.s3.us-east-1.amazonaws.com/Fallout4+2026-06-24+15-02-07.png)
-- **Pair 2**
-  - ![Fallout 4 OFF - 2026-08-12 11:33:45](https://reshade-images.s3.us-east-1.amazonaws.com/Fallout4+2026-08-12+11-33-45.png)
-  - ![Fallout 4 ON - 2026-08-12 11:33:54](https://reshade-images.s3.us-east-1.amazonaws.com/Fallout4+2026-08-12+11-33-54.png)
-
-### Watch Dogs
-
-- **Pair 1**
-  - ![Watch Dogs OFF - 2026-08-12 11:02:59](https://reshade-images.s3.us-east-1.amazonaws.com/Watch_Dogs+2026-08-12+11-04-13.png)
-  - ![Watch Dogs ON - 2026-08-12 11:04:13](https://reshade-images.s3.us-east-1.amazonaws.com/Watch_Dogs+2026-08-12+11-02-59.png)
-- **Pair 2**
-  - ![Watch Dogs OFF - 2026-08-12 11:07:42](https://reshade-images.s3.us-east-1.amazonaws.com/Watch_Dogs+2026-08-12+11-07-42.png)
-  - ![Watch Dogs ON - 2026-08-12 11:07:46](https://reshade-images.s3.us-east-1.amazonaws.com/Watch_Dogs+2026-08-12+11-07-46.png)
-- **Pair 3**
-  - ![Watch Dogs OFF - 2026-08-12 11:08:39](https://reshade-images.s3.us-east-1.amazonaws.com/Watch_Dogs+2026-08-12+11-08-39.png)
-  - ![Watch Dogs ON - 2026-08-12 11:08:45](https://reshade-images.s3.us-east-1.amazonaws.com/Watch_Dogs+2026-08-12+11-08-45.png)
-- **Pair 4**
-  - ![Watch Dogs OFF - 2026-08-12 11:08:39](https://reshade-images.s3.us-east-1.amazonaws.com/Watch_Dogs+2026-08-12+11-14-16.png)
-  - ![Watch Dogs ON - 2026-08-12 11:08:45](https://reshade-images.s3.us-east-1.amazonaws.com/Watch_Dogs+2026-08-12+11-14-20.png)
-
-### The Witcher 3
-
-- **Pair 1**
-  - ![The Witcher 3 OFF - 2026-08-12 11:24:02](https://reshade-images.s3.us-east-1.amazonaws.com/witcher3+2026-08-12+11-24-02.png)
-  - ![The Witcher 3 ON - 2026-08-12 11:25:21](https://reshade-images.s3.us-east-1.amazonaws.com/witcher3+2026-08-12+11-24-07.png)
-- **Pair 2**
-  - ![The Witcher 3 OFF - 2026-08-12 11:26:10](https://reshade-images.s3.us-east-1.amazonaws.com/witcher3+2026-08-12+11-26-10.png)
-  - ![The Witcher 3 ON - 2026-08-12 11:26:10](https://reshade-images.s3.us-east-1.amazonaws.com/witcher3+2026-08-12+11-26-18.png)
-- **Pair 3**
-  - ![The Witcher 3 OFF - 2026-08-12 11:26:10](https://reshade-images.s3.us-east-1.amazonaws.com/witcher3+2026-08-12+11-20-54.png)
-  - ![The Witcher 3 ON - 2026-08-12 11:26:10](https://reshade-images.s3.us-east-1.amazonaws.com/witcher3+2026-08-12+11-20-59.png)
+| Parameter | Config key | Description |
+|-----------|------------|-------------|
+| Show performance issues only | `ColorLinesByLoad` | Colors lines by load and auto-shows lines in a warning state |
+| Show CPU usage | `ShowCPU` | CPU usage |
+| Show core usage | `ShowCore` | Per-core CPU usage |
+| Show GPU usage | `ShowGPU` | GPU usage per adapter |
+| Show GPU temperature | `ShowGPUTemp` | GPU temperature |
+| Show power draw | `ShowPower` | GPU power draw |
+| Show VRAM usage | `ShowVram` | VRAM used in GB |
+| Show RAM usage | `ShowRam` | System RAM used in GB |
+| Show battery level | `ShowBattery` | Battery charge percentage on laptops |
