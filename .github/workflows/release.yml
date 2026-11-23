@@ -20,7 +20,7 @@ jobs:
         run: |
           tag="v${GITHUB_RUN_NUMBER}"
           echo "tag=${tag}" >> "$GITHUB_OUTPUT"
-          echo "zip_name=reshade-better-color-and-texture-${tag}.zip" >> "$GITHUB_OUTPUT"
+          echo "zip_name=reshade-kless-preset-${tag}.zip" >> "$GITHUB_OUTPUT"
           git log -1 --pretty=format:"%s%n%n%b" > body.md
 
       - name: Create ZIP archive

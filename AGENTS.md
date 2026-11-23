@@ -15,23 +15,14 @@ A distributable **ReShade preset** that improves color, shadows, texture detail,
 ```text
 reshade-better-color-and-texture/
 ├── AGENTS.md                       # Agent guidance (this file)
-├── readme.md                       # Purpose, install steps, showcases/videos
+├── readme.md                       # Purpose, install steps
 ├── ReShade.ini                     # ReShade runtime config (search paths, UI, input, screenshots, add-ons)
 ├── ReShadePreset.ini               # Active preset: enabled techniques + shader parameter overrides
 ├── dxgi.dll                        # Prebuilt ReShade DXGI proxy DLL (Windows x86-64, PE32+)
 ├── .github/
 │   └── workflows/
 │       └── release.yml             # CI: zip repo and publish GitHub Release on push to main
-├── src/
-│   └── performance-hud/            # "Performance HUD" ReShade add-on data source (CPU/GPU usage + power OSD)
-│       ├── build.sh                # Cross-build script (llvm-mingw), outputs PerformanceHUD.addon64
-│       ├── CMakeLists.txt          # CMake project (MSVC or mingw) for the same add-on
-│       ├── include/                # Vendored ReShade add-on API headers + matching imgui.h (1.92.5)
-│       └── src/
-│           └── performance_hud.cpp # Add-on implementation (NVML/PDH sampling, OSD overlay)
 └── reshade-shaders/
-    ├── Addons/                     # Built add-on binaries, loaded via [ADDON] AddonPath
-    │   └── PerformanceHUD.addon64  # Prebuilt Performance HUD add-on binary
     ├── Shaders/                    # HLSL effects (.fx) and shared headers (.fxh)
     │   ├── ambient_v2.fx           # Ambient removal + contrast curve (DH_Ambient_Remove_V2)
 │   ├── ambient_v3.fx           # Ambient removal + contrast + anti-oversaturation saturation guard (DH_Ambient_Remove_V3)
@@ -51,7 +42,6 @@ reshade-better-color-and-texture/
 - **HLSL** — shader language used by all `.fx`/`.fxh` files (ReShade FX dialect).
 - **ReShade** — post-processing injector for games.
 - **HLSL** — shader language used by all `.fx`/`.fxh` files (ReShade FX dialect).
-- **C++ / WinAPI** — the Performance HUD add-on (`addons/performance-hud/`), built with llvm-mingw or MSVC.
 - **DirectX / DXGI** — runtime proxied via `dxgi.dll`.
 - **INI configuration** — `ReShade.ini` and `ReShadePreset.ini`.
 - **PNG textures** — lookup textures and font atlas.
@@ -71,7 +61,6 @@ reshade-better-color-and-texture/
 ## Build / Test / Release
 
 - The HLSL preset has **no build system or test suite**: validation is manual (load the preset in ReShade and verify effects render without compile errors).
-- The Performance HUD add-on (`addons/performance-hud/`) builds via `build.sh` (llvm-mingw cross-build, also works on Linux; if no llvm-mingw is installed it auto-downloads a pinned toolchain to `~/.cache` on first run) or `CMakeLists.txt` (MSVC on Windows). Both output `PerformanceHUD.addon64` to `reshade-shaders/Addons/`, which is where the prebuilt binary is committed and `[ADDON] AddonPath` in `ReShade.ini` loads it from; rebuild it after editing `src/performance_hud.cpp` and make sure the vendored headers in `include/` (reshade + imgui 1.92.5) stay in sync with the installed ReShade version.
 - Release: pushing to `main` triggers `.github/workflows/release.yml`, which tags `v${GITHUB_RUN_NUMBER}`, zips the repo (excluding `.git/*` and `.github/*`), and publishes a GitHub Release.
 
 ## Notes for Agents
