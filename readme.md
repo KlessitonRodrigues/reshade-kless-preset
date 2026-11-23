@@ -1,4 +1,4 @@
-## ReShade Preset: Better Colors and Texture
+## ReShade Preset: Reshade Kless Preset
 
 This preset improves color, shadows, texture detail, and sharpness in supported games.
 
@@ -26,23 +26,23 @@ This preset improves color, shadows, texture detail, and sharpness in supported 
 
 ## Shaders & Addons
 
-| Shader | Description |
-|--------|-------------|
-| **Ambience** (`ambient_v3.fx`) | Better shadows and vegetation color via ambient removal and contrast curves. |
-| **Colorfull** (`Colourfulness_v3.fx`) | Better color palette via colourfulness and vibrance adjustments. |
-| **Unit Sharpen** (`qUINT_sharp.fx`) | Better image clarity and texture details via depth-enhanced local contrast sharpening. |
-| **Levels** (`light.fx`) | Black/white point remap for contrast balance. |
+| Shader                                | Description                                                                            |
+| ------------------------------------- | -------------------------------------------------------------------------------------- |
+| **Ambience** (`ambient_v3.fx`)        | Better shadows and vegetation color via ambient removal and contrast curves.           |
+| **Colorfull** (`Colourfulness_v3.fx`) | Better color palette via colourfulness and vibrance adjustments.                       |
+| **Unit Sharpen** (`qUINT_sharp.fx`)   | Better image clarity and texture details via depth-enhanced local contrast sharpening. |
+| **Levels** (`light.fx`)               | Black/white point remap for contrast balance.                                          |
 
 ## Performance HUD Addon
 
-| Parameter | Config key | Description |
-|-----------|------------|-------------|
+| Parameter                    | Config key         | Description                                                  |
+| ---------------------------- | ------------------ | ------------------------------------------------------------ |
 | Show performance issues only | `ColorLinesByLoad` | Colors lines by load and auto-shows lines in a warning state |
-| Show CPU usage | `ShowCPU` | CPU usage |
-| Show core usage | `ShowCore` | Per-core CPU usage |
-| Show GPU usage | `ShowGPU` | GPU usage per adapter |
-| Show GPU temperature | `ShowGPUTemp` | GPU temperature |
-| Show power draw | `ShowPower` | GPU power draw |
-| Show VRAM usage | `ShowVram` | VRAM used in GB |
-| Show RAM usage | `ShowRam` | System RAM used in GB |
-| Show battery level | `ShowBattery` | Battery charge percentage on laptops |
+| Show CPU usage               | `ShowCPU`          | CPU usage                                                    |
+| Show core usage              | `ShowCore`         | Per-core CPU usage                                           |
+| Show GPU usage               | `ShowGPU`          | GPU usage per adapter                                        |
+| Show GPU temperature         | `ShowGPUTemp`      | GPU temperature                                              |
+| Show power draw              | `ShowPower`        | GPU power draw                                               |
+| Show VRAM usage              | `ShowVram`         | VRAM used in GB                                              |
+| Show RAM usage               | `ShowRam`          | System RAM used in GB                                        |
+| Show battery level           | `ShowBattery`      | Battery charge percentage on laptops                         |
